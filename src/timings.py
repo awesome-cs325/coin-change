@@ -95,14 +95,14 @@ def timefunc(func,args,moreargs):
 
     return elapsedTime
 
-def timegen(func,cvs,alist):
+def timegen(func,cvs,alist,loops):
     times = []
     #for each size n...
     for a in alist:
         #calculate the time for each of the amounts
         #pprint.pprint(a)
         #pprint.pprint(cvs)
-        times.append([timefunc(func,cvs,a)])
+        times.append([timefunc(func,cvs,a) for i in range(loops)])
 
     return times
 
@@ -110,10 +110,12 @@ def timefuncs():
     coin_vals = list(range(2,31,2))
     coin_vals.insert(0,1);
     a_list = list(range(20,30,1))
+    loop_cnt = [1,1000,1]
+    algs = [changeslow,changegreedy,changedp]
     timedict = {}
     #generate dictionaries for ease of labels in graphing
-    for algType in [changeslow,changegreedy,changedp]:
-        timedict[str(algType.__name__)] = timegen(algType,coin_vals,a_list)
+    for i in range(0,2):
+        timedict[str(algs[i].__name__)] = timegen(algs[i],coin_vals,a_list,loop_cnt[i])
 
     timedict["ns"] = a_list
     return timedict

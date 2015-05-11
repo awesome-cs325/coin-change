@@ -29,5 +29,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--silent", action="store_true")
     args = parser.parse_args()
-    log_graph.plt(args.silent)
+    log_graph.plot(args.silent)
     plot(timings.timefuncs(), args.silent)
