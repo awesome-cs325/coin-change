@@ -114,7 +114,7 @@ def timefuncs():
     algs = [changeslow,changegreedy,changedp]
     timedict = {}
     #generate dictionaries for ease of labels in graphing
-    for i in range(0,2):
+    for i in range(0,3):
         timedict[str(algs[i].__name__)] = timegen(algs[i],coin_vals,a_list,loop_cnt[i])
 
     timedict["ns"] = a_list
