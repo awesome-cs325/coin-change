@@ -110,7 +110,7 @@ def timefuncs():
     coin_vals = list(range(2,31,2))
     coin_vals.insert(0,1);
     a_list = list(range(20,30,1))
-    loop_cnt = [1,1000,1]
+    loop_cnt = [1,100000,1000]
     algs = [changeslow,changegreedy,changedp]
     timedict = {}
     #generate dictionaries for ease of labels in graphing

@@ -10,7 +10,7 @@ import log_graph
 def plot(timedict, silentFlag):
     xs = timedict.pop("ns")
     for alg, times in timedict.items():
-        ys = ([np.mean(ts) for ts in times])
+        ys = ([np.sum(ts) for ts in times])
 
         plt.plot(xs,ys,label=alg)
     plt.xlabel('amount')
