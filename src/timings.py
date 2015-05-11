@@ -9,6 +9,8 @@ import bisect
 import os
 import sys
 
+from numba import jit
+
 # ALGORITHM 1
 def changeslow(coinValues, amount):
     #pprint.pprint(amount)
@@ -107,7 +109,7 @@ def timegen(func,cvs,alist):
 def timefuncs():
     coin_vals = list(range(2,31,2))
     coin_vals.insert(0,1);
-    a_list = list(range(150,170,1))
+    a_list = list(range(20,30,1))
     timedict = {}
     #generate dictionaries for ease of labels in graphing
     for algType in [changeslow,changegreedy,changedp]:

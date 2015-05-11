@@ -13,11 +13,11 @@ def plot(timedict, silentFlag):
         ys = ([np.mean(ts) for ts in times])
 
         plt.plot(xs,ys,label=alg)
-    plt.xlabel('array size')
+    plt.xlabel('amount')
     plt.ylabel('time')
 
     plt.legend()
-    plt.title("Running Times of Various\nMaximum Sum Subarray Algorithms")
+    plt.title("Running Times of Various\nCoin Usage Algorithms")
 
     plt.savefig("../bin/testrun.eps",bbox_inches="tight")
     if not silentFlag:
