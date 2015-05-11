@@ -127,24 +127,27 @@ Let's assume that $T[v]$ will always produce a list with the minimum number of c
 \end{enumerate}
 
 \section{V=[1,5,10,25,50] A=[2010,2015,2020,...,2200]}
-\begin{figure}[!ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{./p4.eps}
 \end{figure}
 The resulting coin counts for the greedy and dynamic programming implementations are exactly the same for this given coin set. The trend line appears to be linear.
 
 \section{$V_1$=[1,2,6,12,24,48,60] $V_2$=[1,6,13,37,150]}
-\begin{figure}[!ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{./p5.eps}
 \end{figure}
 The groupings for changedp were tighter than those found in changegreedy. However, the rate in which the coin count increased was nearly identical for both algorithms. In most cases, the coin counts matched. The largest difference between the two sets was three coins. Both sets seem to follow a roughly linear trendline.
 
 \section{V=[1,2,6,12,24,48,60] A=[1,6,13,37,150]}
-\begin{figure}[!ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{./p6.eps}
 \end{figure}
 The coin coin counts for this particular coin set resulted in identical sets between the greedy algorithm and dynamic programming algorithm. It appears that coin sets that have values that evenly divide each other play nice with the greedy algorithm.
+
+\section{Powers}
+If $V=[p^0,p^1,p^2,p^3,...,p^n]$, then greedy and dynamic approaches would yield the same result, but greedy would achieve the result in the faster time. Because every coin can be perfectly subdivided by the previous coins, there does not exist any value $v>=p^n$ where $p^{n-1}$ will give a solution in less coins than $p^n$. $p^n=p(p^{n-1})$, which will make $p^n$ a superior solution for all $p>1$. A dynamic programming approach will have to work from the bottom up to calculate the answers for $T[1]..T[v-1]$ before finding the solution to $T[v]$, but a greddy approach will be able to immediately find the answer in $\Theta(v)$ time.
 
 \end{document}
